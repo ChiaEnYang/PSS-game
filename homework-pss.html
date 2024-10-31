@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>剪刀石頭布...不...不要RRR</title>
+    <link rel="stylesheet" href="./css/homework-pss.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="pc big gogo"></div>
+      <div class="pc big pc-img"></div>
+
+      <div class="btn-group">
+        <p class="btn">請先選擇要出的拳，接著再攻擊!</p>
+
+        <input type="radio" name="choice" value="1" id="scissors" hidden />
+        <label for="scissors" class="btn">剪刀</label>
+
+        <input type="radio" name="choice" value="2" id="stone" hidden />
+        <label for="stone" class="btn"> 石頭 </label>
+
+        <input type="radio" name="choice" value="3" id="paper" hidden />
+        <label for="paper" class="btn">布</label>
+        <div class="player small scissors preview"></div>
+        <div class="player small stone preview"></div>
+        <div class="player small paper preview"></div>
+
+        <button type="button" class="btn" id="attack">攻擊</button>
+      </div>
+
+      <div class="result-box">
+        <p class="result-text btn">結果在這裡</p>
+        <button type="button" class="btn" id="again">在玩一次</button>
+      </div>
+    </main>
+    <script src="./js/homework-pss.js"></script>
+  </body>
+</html>

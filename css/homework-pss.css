@@ -1,0 +1,256 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #252422;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  background-image: url(../img/bgp.png);
+  width: 800px;
+  height: 670px;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.big {
+  width: 250px;
+  height: 250px;
+}
+
+.small {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ccc5b9;
+}
+
+.player {
+  position: absolute;
+  left: 200px;
+  bottom: 150px;
+  background-position: bottom 10px left 11px;
+  background-size: 85%;
+  background-repeat: no-repeat;
+}
+
+.pc {
+  position: absolute;
+  right: 80px;
+  bottom: 345px;
+  background-size: contain;
+}
+
+.scissors {
+  background-image: url(../img/scissor.png);
+}
+
+.stone {
+  background-image: url(../img/stone.png);
+}
+
+.paper {
+  background-image: url(../img/paper.png);
+}
+
+.pc.gogo {
+  animation: gogo 0.3s infinite;
+}
+
+.pc.pc-img {
+  background-image: url();
+}
+
+.btn-group {
+  /* background-color: aquamarine; */
+  width: 340px;
+  height: 200px;
+  position: absolute;
+  right: 43px;
+  bottom: 37px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.btn-group p {
+  color: orange;
+  width: 100%;
+  margin: 5px;
+}
+
+.btn {
+  background-color: #403d39;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fffcf2;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.btn::after {
+  content: "";
+  /* background-color: aqua; */
+  width: 15px;
+  height: 15px;
+  border: 7.5px solid transparent;
+  border-left: 7.5px solid #fffcf2;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(0, -50%);
+  animation: after 0.3s alternate infinite paused;
+}
+
+.btn::before {
+  content: "";
+  /* background-color: aqua; */
+  width: 15px;
+  height: 15px;
+  border: 7.5px solid transparent;
+  border-right: 7.5px solid #fffcf2;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0, -50%);
+  animation: before 0.3s alternate infinite paused;
+}
+
+#attack {
+  color: red;
+}
+
+#attack::after {
+  border-left-color: red;
+}
+
+#attack::before {
+  border-right-color: red;
+}
+
+#attack::after,
+#again::after {
+  left: 120px;
+}
+
+#attack::before,
+#again::before {
+  right: 120px;
+}
+
+p.btn::after,
+p.btn::before {
+  display: none;
+}
+
+input:checked + label {
+  color: orange;
+}
+input:checked + label::after {
+  border-left: 7.5px solid orange;
+  animation: after 0.3s alternate infinite running;
+}
+input:checked + label::before {
+  border-right: 7.5px solid orange;
+  animation: before 0.3s alternate infinite running;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+.btn:hover::after {
+  animation: after 0.3s alternate infinite running;
+}
+.btn:hover::before {
+  animation: before 0.3s alternate infinite running;
+}
+
+input#scissors:checked ~ div.preview:nth-of-type(1) {
+  display: block;
+}
+
+input#stone:checked ~ div.preview:nth-of-type(2) {
+  display: block;
+}
+
+input#paper:checked ~ div.preview:nth-of-type(3) {
+  display: block;
+}
+
+.preview {
+  left: -217px;
+  bottom: 112px;
+  display: none;
+}
+
+#attack {
+  cursor: pointer;
+  width: 100%;
+}
+
+.result-box {
+  background-color: #403d39;
+  width: 350px;
+  height: 245px;
+  padding: 25px;
+  display: none;
+  position: absolute;
+  right: 37px;
+  bottom: 13px;
+  z-index: 100;
+}
+
+.result-box .result-text {
+  font-size: 30px;
+}
+
+#again {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------------------- 動畫區 ---------------------------------------- */
+@keyframes gogo {
+  1%,
+  33% {
+    background-image: url(../img/scissor.png);
+  }
+
+  34%,
+  66% {
+    background-image: url(../img/stone.png);
+  }
+
+  67%,
+  100% {
+    background-image: url(../img/paper.png);
+  }
+}
+@keyframes after {
+  100% {
+    transform: translate(-30%, -50%);
+  }
+}
+@keyframes before {
+  100% {
+    transform: translate(30%, -50%);
+  }
+}
